@@ -128,7 +128,7 @@ function Dashboard() {
           </Col>
         </Row>
         <Row>
-          <Col md="4">
+          <Col md="6">
             <Card>
               <Card.Header>
                 <Card.Title as="h4">Users Behavior</Card.Title>
@@ -193,11 +193,7 @@ function Dashboard() {
                   Click <i className="fas fa-circle text-warning"></i>
                   Click Second Time
                 </div>
-                <hr></hr>
-                <div className="stats">
-                  <i className="fas fa-history"></i>
-                  Updated 3 minutes ago
-                </div>
+                
               </Card.Footer>
             </Card>
           </Col>
@@ -226,15 +222,11 @@ function Dashboard() {
                   Bounce <i className="fas fa-circle text-warning"></i>
                   Unsubscribe
                 </div>
-                <hr></hr>
-                <div className="stats">
-                  <i className="far fa-clock"></i>
-                  Campaign sent 2 days ago
-                </div>
+                
               </Card.Body>
             </Card>
           </Col>
-          <Col md="4">
+          <Col md="6">
             <Card>
               <Card.Header>
                 <Card.Title as="h4">2017 Sales</Card.Title>
@@ -319,11 +311,7 @@ function Dashboard() {
                   Tesla Model S <i className="fas fa-circle text-danger"></i>
                   BMW 5 Series
                 </div>
-                <hr></hr>
-                <div className="stats">
-                  <i className="fas fa-check"></i>
-                  Data information certified
-                </div>
+                
               </Card.Footer>
             </Card>
           </Col>
