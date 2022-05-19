@@ -22,9 +22,9 @@ import AdminNavbar from "components/Navbars/AdminNavbar";
 import Footer from "components/Footer/Footer";
 import Sidebar from "components/Sidebar/Sidebar";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-
+import Style from "../views/Style.css";
 import routes from "routes.js";
-
+import { Alert } from "bootstrap";
 import sidebarImage from "assets/img/sidebar-3.jpg";
 
 function Admin() {
@@ -63,24 +63,19 @@ function Admin() {
   }, [location]);
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper color-back">
         <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
-        <div className="main-panel" ref={mainPanel}>
+        <div className="main-panel color-back" ref={mainPanel}>
           <AdminNavbar />
-          <div className="content">
+          <div className="color-back">
+          
+          
             <Switch>{getRoutes(routes)}</Switch>
           </div>
-          <Footer />
+          
         </div>
       </div>
-      <FixedPlugin
-        hasImage={hasImage}
-        setHasImage={() => setHasImage(!hasImage)}
-        color={color}
-        setColor={(color) => setColor(color)}
-        image={image}
-        setImage={(image) => setImage(image)}
-      />
+      
     </>
   );
 }

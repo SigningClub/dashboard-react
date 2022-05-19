@@ -1,0 +1,13 @@
+.color-nav{
+    background-color: red;
+  }
+  .color-back{
+    background-color: rgb(233, 233, 233)
+  }
+.border-control{
+  border-radius: 25px;
+
+}
+.circle {
+  border-radius: 50%;
+}

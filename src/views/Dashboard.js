@@ -1,6 +1,9 @@
 import React from "react";
 import ChartistGraph from "react-chartist";
 // react-bootstrap components
+import './Style.css';
+import DonutChart from '@foo-software/react-charts-donut';
+import '@foo-software/react-charts-donut/dist/DonutChart.css';
 import {
   Badge,
   Button,
@@ -17,13 +20,45 @@ import {
 } from "react-bootstrap";
 //<iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/a8f7dc99-6bae-4e3f-8924-a907c140f343/page/6zXD" frameborder="0" style="border:0" allowfullscreen></iframe>
 //Rosca, barra invertida, pizza
+const options = {
+  animationEnabled: true,
+  title: {
+    text: "Customer Satisfaction"
+  },
+  subtitles: [{
+    text: "71% Positive",
+    verticalAlign: "center",
+    fontSize: 24,
+    dockInsidePlotArea: true
+  }],
+  data: [{
+    type: "doughnut",
+    showInLegend: true,
+    indexLabel: "{name}: {y}",
+    yValueFormatString: "#,###'%'",
+    dataPoints: [
+      { name: "Unsatisfied", y: 5 },
+      { name: "Very Unsatisfied", y: 31 },
+      { name: "Very Satisfied", y: 40 },
+      { name: "Satisfied", y: 17 },
+      { name: "Neutral", y: 7 }
+    ]
+  }]
+}
+
 function Dashboard() {
   return (
     <>
+    <img
+    src={require("assets/img/Dashboard.png").default}
+    
+    alt="..."
+  /> 
+    <div className="color-back">
       <Container fluid>
         <Row>
           <Col lg="3" sm="6">
-            <Card className="card-stats">
+            <Card className="card-stats border-control">
               <Card.Body>
                 <Row>
                   <Col xs="5">
@@ -39,17 +74,11 @@ function Dashboard() {
                   </Col>
                 </Row>
               </Card.Body>
-              <Card.Footer>
-                <hr></hr>
-                <div className="stats">
-                  <i className="fas fa-redo mr-1"></i>
-                  Update Now
-                </div>
-              </Card.Footer>
+              
             </Card>
           </Col>
           <Col lg="3" sm="6">
-            <Card className="card-stats">
+            <Card className="card-stats border-control" >
               <Card.Body>
                 <Row>
                   <Col xs="5">
@@ -65,17 +94,11 @@ function Dashboard() {
                   </Col>
                 </Row>
               </Card.Body>
-              <Card.Footer>
-                <hr></hr>
-                <div className="stats">
-                  <i className="far fa-calendar-alt mr-1"></i>
-                  Last day
-                </div>
-              </Card.Footer>
+              
             </Card>
           </Col>
           <Col lg="3" sm="6">
-            <Card className="card-stats">
+            <Card className="card-stats border-control">
               <Card.Body>
                 <Row>
                   <Col xs="5">
@@ -91,17 +114,11 @@ function Dashboard() {
                   </Col>
                 </Row>
               </Card.Body>
-              <Card.Footer>
-                <hr></hr>
-                <div className="stats">
-                  <i className="far fa-clock-o mr-1"></i>
-                  In the last hour
-                </div>
-              </Card.Footer>
+              
             </Card>
           </Col>
           <Col lg="3" sm="6">
-            <Card className="card-stats">
+            <Card className="card-stats border-control">
               <Card.Body>
                 <Row>
                   <Col xs="5">
@@ -117,26 +134,20 @@ function Dashboard() {
                   </Col>
                 </Row>
               </Card.Body>
-              <Card.Footer>
-                <hr></hr>
-                <div className="stats">
-                  <i className="fas fa-redo mr-1"></i>
-                  Update now
-                </div>
-              </Card.Footer>
+              
             </Card>
           </Col>
         </Row>
         <Row>
           <Col md="6">
             <Card>
-              <Card.Header>
+              <Card.Header >
                 <Card.Title as="h4">Users Behavior</Card.Title>
                 <p className="card-category">24 Hours performance</p>
               </Card.Header>
               <Card.Body>
                 <div className="ct-chart" id="chartHours">
-                  <ChartistGraph
+                  <ChartistGraph 
                     data={{
                       labels: [
                         "9:00",
@@ -315,8 +326,12 @@ function Dashboard() {
               </Card.Footer>
             </Card>
           </Col>
+          
+          
         </Row>
       </Container>
+      </div>
+    
     </>
   );
 }

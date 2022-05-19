@@ -40,13 +40,7 @@ const dashboardRoutes = [
     component: UserProfile,
     layout: "/admin",
   },
-  {
-    path: "/upgrade",
-    name: "Embed",
-    icon: "nc-icon nc-paper-2",
-    component: Upgrade,
-    layout: "/admin",
-  },
+  
   
   
   

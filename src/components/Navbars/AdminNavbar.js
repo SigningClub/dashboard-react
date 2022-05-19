@@ -43,28 +43,10 @@ function Header() {
     }
     return "Brand";
   };
-  return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <div className="d-flex justify-content-center align-items-center ml-2 ml-lg-0">
-          <Button
-            variant="dark"
-            className="d-lg-none btn-fill d-flex justify-content-center align-items-center rounded-circle p-2"
-            onClick={mobileSidebarToggle}
-          >
-            <i className="fas fa-ellipsis-v"></i>
-          </Button>
-          <Navbar.Brand
-            href="#home"
-            onClick={(e) => e.preventDefault()}
-            className="mr-2"
-          >
-            {getBrandText()}
-          </Navbar.Brand>
-        </div>
-        
-      </Container>
-    </Navbar>
+  return (<div>
+    
+  </div>
+    
   );
 }
 
