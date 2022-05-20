@@ -9,5 +9,17 @@
 
 }
 .circle {
-  border-radius: 50%;
+  border-radius: 5%;
+}
+.text-control{
+  font-size: 25px;
+  text-align: center;
+  text-decoration-thickness: auto;
+}
+.text-control-subtitle{
+  font-size: 12px;
+  text-align: center;
+  color: gray;
+
+
 }
