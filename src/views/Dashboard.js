@@ -2,7 +2,7 @@ import React from "react";
 import ChartistGraph from "react-chartist";
 // react-bootstrap components
 import './Style.css';
-import DonutChart from '@foo-software/react-charts-donut';
+import ReactECharts from 'echarts-for-react';
 import '@foo-software/react-charts-donut/dist/DonutChart.css';
 import {
   Badge,
@@ -45,6 +45,44 @@ const options = {
     ]
   }]
 }
+let option = {
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      name: 'Accesso por',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: '40',
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 1048, name: 'Busca' },
+        { value: 735, name: 'Magister' },
+        { value: 580, name: 'Email' },
+        { value: 484, name: 'Anúncios' },
+        
+      ]
+    }
+  ]
+};
 
 function Dashboard() {
   return (
@@ -182,7 +220,7 @@ function Dashboard() {
                       }}
                       responsiveOptions={[
                         [
-                          "screen and (max-width: 640px)",
+                          "screen and (max-width: 650px)",
                           {
                             axisX: {
                               labelInterpolationFnc: function (value) {
@@ -321,6 +359,18 @@ function Dashboard() {
 
                 </Card.Footer>
               </Card>
+            </Col>
+            <Col md="5">
+              <Card className="border-control">
+              <CardTitle className="text-control">Teste de Chart de Rosca</CardTitle>
+                <p className="text-control-subtitle">Como encontrou o magister</p>
+                <Card.Body>
+                  <ReactECharts option={option} className="pie-chart"/>
+                  </Card.Body>
+                  <Card.Footer>
+                    A decidir o que se fazer com o Footer
+                  </Card.Footer>
+                  </Card>
             </Col>
 
 
