@@ -81,6 +81,68 @@ let option = {
         
       ]
     }
+  ],
+  responsiveOptions:[
+    [
+      "screen and (max-width: 650px)",
+      {
+        axisX: {
+          labelInterpolationFnc: function (value) {
+            return value[0];
+          },
+        },
+      },
+    ],
+  ]
+};
+let optionPie = {
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      name: 'Accesso por',
+      type: 'pie',
+      radius: ['0%', '70%'],
+      avoidLabelOverlap: false,
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: '40',
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 1048, name: 'Busca' },
+        { value: 735, name: 'Magister' },
+        { value: 580, name: 'Email' },
+        { value: 484, name: 'Anúncios' },
+        
+      ]
+    }
+  ],
+  responsiveOptions:[
+    [
+      "screen and (max-width: 650px)",
+      {
+        axisX: {
+          labelInterpolationFnc: function (value) {
+            return value[0];
+          },
+        },
+      },
+    ],
   ]
 };
 
@@ -186,14 +248,15 @@ function Dashboard() {
                     <ChartistGraph
                       data={{
                         labels: [
-                          "9:00",
-                          "12:00",
-                          "15:00",
-                          "18:00",
-                          "21:00",
-                          "00:00",
-                          "3:00",
-                          "6:00",
+                          "Jan",
+                          "Feb",
+                          "Mar",
+                          "Apr",
+                          "Mai",
+                          "Jun",
+                          "Jul",
+                          "Aug",
+                          
                         ],
                         series: [
                           [287, 385, 490, 492, 554, 586, 698, 695],
@@ -244,32 +307,14 @@ function Dashboard() {
                 </Card.Footer>
               </Card>
             </Col>
-            <Col md="4">
+            <Col md="5">
               <Card className="border-control">
 
                 <CardTitle className="text-control">Email Statistics</CardTitle>
                 <p className="text-control-subtitle">Last Campaign Performance</p>
 
                 <Card.Body>
-                  <div
-                    className="ct-chart ct-perfect-fourth"
-                    id="chartPreferences"
-                  >
-                    <ChartistGraph
-                      data={{
-                        labels: ["40%", "20%", "40%"],
-                        series: [40, 20, 40],
-                      }}
-                      type="Pie"
-                    />
-                  </div>
-                  <div className="legend">
-                    <i className="fas fa-circle text-info"></i>
-                    Open <i className="fas fa-circle text-danger"></i>
-                    Bounce <i className="fas fa-circle text-warning"></i>
-                    Unsubscribe
-                  </div>
-
+                <ReactECharts option={optionPie} className="pie-chart"/>
                 </Card.Body>
               </Card>
             </Col>
@@ -367,9 +412,6 @@ function Dashboard() {
                 <Card.Body>
                   <ReactECharts option={option} className="pie-chart"/>
                   </Card.Body>
-                  <Card.Footer>
-                    A decidir o que se fazer com o Footer
-                  </Card.Footer>
                   </Card>
             </Col>
 
