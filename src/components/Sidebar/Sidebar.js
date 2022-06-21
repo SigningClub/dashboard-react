@@ -38,7 +38,7 @@ function Sidebar({ color, image, routes }) {
           >
             <div >
               <img
-                src={require("assets/img/GrupoTiradentes.png").default}
+                src={require("assets/img/marca_gt.png").default}
                 height="50"
                 width="150"
                 alt="..."

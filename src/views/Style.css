@@ -4,6 +4,14 @@
   .color-back{
     background-color: rgb(233, 233, 233)
   }
+.icon-control{
+  position: relative;
+  bottom: 13px;
+}
+.card-position{
+  position: relative;
+  bottom: 6px;
+}
 .border-control{
   border-radius: 25px;
 
@@ -26,4 +34,30 @@
   color: gray;
 
 
+}
+.card-numbers{
+  font-size: 25px;
+  color: rgb(69,99,174);
+  text-align: left;
+  position: absolute;
+  top: 11px;
+  text-decoration-thickness: auto;
+}
+.card-subtitle{
+  font-size: 15px;
+  color: gray;
+  text-align: left;
+  position: absolute;
+  top: 11px;
+  left: 0px;
+  text-decoration-thickness: auto;
+}
+.navbar-adjust{
+  border-radius: 0px 0px 40px 0px;
+  background-color:red
+}
+.navbar-title{
+  background-color: white;
+  background-size: 3000px 100px;
+  border-radius: 0px 0px 20px 0px;
 }

@@ -5,18 +5,12 @@ import './Style.css';
 import ReactECharts from 'echarts-for-react';
 import '@foo-software/react-charts-donut/dist/DonutChart.css';
 import {
-  Badge,
-  Button,
   Card,
-  Navbar,
-  Nav,
-  Table,
   Container,
   Row,
   Col,
-  Form,
-  OverlayTrigger,
-  Tooltip,
+  Table,
+  Navbar
 } from "react-bootstrap";
 import { CardTitle } from "reactstrap";
 
@@ -58,10 +52,10 @@ let option = {
       name: 'Accesso por',
       type: 'pie',
       radius: ['40%', '70%'],
-      avoidLabelOverlap: false,
+      avoidLabelOverlap: true,
       label: {
         show: false,
-        position: 'center'
+        position: 'center',
       },
       emphasis: {
         label: {
@@ -78,11 +72,11 @@ let option = {
         { value: 735, name: 'Magister' },
         { value: 580, name: 'Email' },
         { value: 484, name: 'Anúncios' },
-        
+
       ]
     }
   ],
-  responsiveOptions:[
+  responsiveOptions: [
     [
       "screen and (max-width: 650px)",
       {
@@ -128,11 +122,11 @@ let optionPie = {
         { value: 735, name: 'Magister' },
         { value: 580, name: 'Email' },
         { value: 484, name: 'Anúncios' },
-        
+
       ]
     }
   ],
-  responsiveOptions:[
+  responsiveOptions: [
     [
       "screen and (max-width: 650px)",
       {
@@ -230,7 +224,7 @@ let horizontalBoption = {
     }
   ]
   ,
-  responsiveOptions:[
+  responsiveOptions: [
     [
       "screen and (max-width: 650px)",
       {
@@ -243,51 +237,174 @@ let horizontalBoption = {
     ],
   ]
 };
+let lineOption = {
+
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '4%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: 'Email',
+      type: 'line',
+      stack: 'Total',
+      data: [120, 132, 101, 134, 90, 230, 210]
+    },
+    {
+      name: 'Union Ads',
+      type: 'line',
+      stack: 'Total',
+      data: [220, 182, 191, 234, 290, 330, 310]
+    },
+    {
+      name: 'Video Ads',
+      type: 'line',
+      stack: 'Total',
+      data: [150, 232, 201, 154, 190, 330, 410]
+    },
+    {
+      name: 'Direct',
+      type: 'line',
+      stack: 'Total',
+      data: [320, 332, 301, 334, 390, 330, 320]
+    },
+    {
+      name: 'Search Engine',
+      type: 'line',
+      stack: 'Total',
+      data: [820, 932, 901, 934, 1290, 1330, 1320]
+    }
+  ]
+};
+let newBaroption = {
+  legend: {},
+  tooltip: {},
+  dataset: {
+    source: [
+      ['product', '2012', '2013', '2014', '2015'],
+      ['Matcha Latte', 41.1, 30.4, 65.1, 53.3],
+      ['Milk Tea', 86.5, 92.1, 85.7, 83.1],
+      ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4],
+      ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4],
+      ['Matcha Green Tea', 24.1, 67.2, 79.5, 86.4],
+    ]
+  },
+  xAxis: [
+    { type: 'category', gridIndex: 0 }
+  ],
+  yAxis: [{ gridIndex: 0 }],
+
+  series: [
+    { type: 'bar', seriesLayoutBy: 'row' },
+    { type: 'bar', seriesLayoutBy: 'row' },
+    { type: 'bar', seriesLayoutBy: 'row' },
+    { type: 'bar', seriesLayoutBy: 'row' },
+    { type: 'bar', seriesLayoutBy: 'row' },
+  ]
+};
+let gaugeOption = {
+  tooltip: {
+    formatter: '{a} <br/>{b} : {c}%'
+  },
+  series: [
+    {
+      name: 'Nota do Aluno',
+      type: 'gauge',
+      progress: {
+        show: true
+      },
+      detail: {
+        valueAnimation: true,
+        formatter: '{value}'
+      },
+      data: [
+        {
+          value: 85,
+          name: 'Média'
+        }
+      ]
+    }
+  ]
+};
 function Dashboard() {
   return (
     <>
-      <img
-        src={require("assets/img/Dashboard.png").default}
+      <p>
+<Container fluid>
+  <Navbar className="navbar-adjust">
+    <Navbar.Brand className="navbar-title">
+    <img
+                src={require("assets/img/marca_gt.png").default}
+                height="50"
+                width="150"
+                alt="..."
+              />
+    </Navbar.Brand>
 
-        alt="..."
-      />
+  </Navbar>
+</Container>
+      </p>
       <div className="color-back">
         <Container fluid>
+
           <Row>
             <Col lg="3" sm="6">
               <Card className="card-stats border-control">
                 <Card.Body>
                   <Row>
-                    <Col xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-chart text-warning"></i>
+                    <Col xs="3">
+                      <div className="icon-big text-center icon-warning icon-control">
+                        <img src={require("assets/img/icone_atividades_complementares.png").default}
+                          alt="icone de atividade" />
                       </div>
                     </Col>
-                    <Col xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Number</p>
-                        <Card.Title as="h4">150GB</Card.Title>
-                      </div>
+                    <Col xs="3">
+
+
+                      <Card.Title ><div className="card-numbers">5</div></Card.Title>
+
+                    </Col>
+                    <Col xs="5">
+                      <p className="card-subtitle subtitle-help">Atividades Complementares</p>
                     </Col>
                   </Row>
                 </Card.Body>
-
               </Card>
             </Col>
             <Col lg="3" sm="6">
               <Card className="card-stats border-control" >
                 <Card.Body>
                   <Row>
-                    <Col xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-light-3 text-success"></i>
+                    <Col xs="3">
+                      <div className="icon-big text-center icon-warning icon-control">
+                        <img src={require("assets/img/icone_carga_horaria_curso.png").default}
+                          alt="icone de atividade" />
                       </div>
                     </Col>
-                    <Col xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Revenue</p>
-                        <Card.Title as="h4">$ 1,345</Card.Title>
-                      </div>
+                    <Col xs="3">
+
+                      <Card.Title><div className="card-numbers">80</div></Card.Title>
+
+
+                    </Col>
+                    <Col xs="5">
+                      <p className="card-subtitle">Carga horária</p>
                     </Col>
                   </Row>
                 </Card.Body>
@@ -298,16 +415,17 @@ function Dashboard() {
               <Card className="card-stats border-control">
                 <Card.Body>
                   <Row>
-                    <Col xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-vector text-danger"></i>
+                    <Col xs="3">
+                      <div className="icon-big text-center icon-warning icon-control">
+                        <img src={require("assets/img/icone_carga_horaria_pendente.png").default} />
                       </div>
                     </Col>
-                    <Col xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Errors</p>
-                        <Card.Title as="h4">23</Card.Title>
-                      </div>
+                    <Col xs="3">
+                      <Card.Title><div className="card-numbers">80</div></Card.Title>
+
+                    </Col>
+                    <Col xs="5">
+                      <p className="card-subtitle">Carga Horária Pendente</p>
                     </Col>
                   </Row>
                 </Card.Body>
@@ -318,16 +436,18 @@ function Dashboard() {
               <Card className="card-stats border-control">
                 <Card.Body>
                   <Row>
-                    <Col xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-favourite-28 text-primary"></i>
+                    <Col xs="3">
+                      <div className="icon-big text-center icon-warning icon-control">
+                        <img src={require("assets/img/icone_mgp.png").default} />
                       </div>
                     </Col>
-                    <Col xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Followers</p>
-                        <Card.Title as="h4">+45K</Card.Title>
-                      </div>
+                    <Col xs="3">
+
+                      <Card.Title ><div className="card-numbers">8.5</div></Card.Title>
+
+                    </Col>
+                    <Col xs="5">
+                      <p className="card-subtitle">Média Geral Ponderada</p>
                     </Col>
                   </Row>
                 </Card.Body>
@@ -338,190 +458,95 @@ function Dashboard() {
           <Row>
             <Col md="6">
               <Card className="border-control">
-                <CardTitle className="text-control">User Behavior</CardTitle>
-                <p className="text-control-subtitle">24 Hours performance</p>
+                <CardTitle className="text-control">Chart de Linha</CardTitle>
+                <p className="text-control-subtitle">Como encontrou o magister</p>
                 <Card.Body>
-                  <div className="ct-chart" id="chartHours">
-                    <ChartistGraph
-                      data={{
-                        labels: [
-                          "Jan",
-                          "Feb",
-                          "Mar",
-                          "Apr",
-                          "Mai",
-                          "Jun",
-                          "Jul",
-                          "Aug",
-                          
-                        ],
-                        series: [
-                          [287, 385, 490, 492, 554, 586, 698, 695],
-                          [67, 152, 143, 240, 287, 335, 435, 437],
-                          [23, 113, 67, 108, 190, 239, 307, 308],
-                        ],
-                      }}
-                      type="Line"
-                      options={{
-                        low: 0,
-                        high: 800,
-                        showArea: false,
-                        height: "245px",
-                        axisX: {
-                          showGrid: false,
-                        },
-                        lineSmooth: true,
-                        showLine: true,
-                        showPoint: true,
-                        fullWidth: true,
-                        chartPadding: {
-                          right: 50,
-                        },
-                      }}
-                      responsiveOptions={[
-                        [
-                          "screen and (max-width: 650px)",
-                          {
-                            axisX: {
-                              labelInterpolationFnc: function (value) {
-                                return value[0];
-                              },
-                            },
-                          },
-                        ],
-                      ]}
-                    />
-                  </div>
+                  <ReactECharts option={lineOption} />
                 </Card.Body>
-                <Card.Footer>
-                  <div className="legend">
-                    <i className="fas fa-circle text-info"></i>
-                    Open <i className="fas fa-circle text-danger"></i>
-                    Click <i className="fas fa-circle text-warning"></i>
-                    Click Second Time
-                  </div>
-
-                </Card.Footer>
               </Card>
             </Col>
-            <Col md="5">
+            <Col md="6">
               <Card className="border-control">
 
                 <CardTitle className="text-control">Email Statistics</CardTitle>
                 <p className="text-control-subtitle">Last Campaign Performance</p>
 
                 <Card.Body>
-                <ReactECharts option={optionPie} className="pie-chart"/>
+                  <ReactECharts option={optionPie} className="pie-chart" />
                 </Card.Body>
               </Card>
             </Col>
             <Col md="6" >
               <Card className="border-control">
-                <CardTitle className="text-control">2017 Sales</CardTitle>
-                <p className="text-control-subtitle">All products including Taxes</p>
-                <Card.Body>
-                  <div className="ct-chart" id="chartActivity">
-                    <ChartistGraph
-                      data={{
-                        labels: [
-                          "Jan",
-                          "Feb",
-                          "Mar",
-                          "Apr",
-                          "Mai",
-                          "Jun",
-                          "Jul",
-                          "Aug",
-                          "Sep",
-                          "Oct",
-                          "Nov",
-                          "Dec",
-                        ],
-                        series: [
-                          [
-                            542,
-                            443,
-                            320,
-                            780,
-                            553,
-                            453,
-                            326,
-                            434,
-                            568,
-                            610,
-                            756,
-                            895,
-                          ],
-                          [
-                            412,
-                            243,
-                            280,
-                            580,
-                            453,
-                            353,
-                            300,
-                            364,
-                            368,
-                            410,
-                            636,
-                            695,
-                          ],
-                        ],
-                      }}
-                      type="Bar"
-                      options={{
-                        seriesBarDistance: 10,
-                        axisX: {
-                          showGrid: false,
-                        },
-                        height: "245px",
-                      }}
-                      responsiveOptions={[
-                        [
-                          "screen and (max-width: 640px)",
-                          {
-                            seriesBarDistance: 5,
-                            axisX: {
-                              labelInterpolationFnc: function (value) {
-                                return value[0];
-                              },
-                            },
-                          },
-                        ],
-                      ]}
-                    />
-                  </div>
-                </Card.Body>
-                <Card.Footer>
-                  <div className="legend">
-                    <i className="fas fa-circle text-info"></i>
-                    Tesla Model S <i className="fas fa-circle text-danger"></i>
-                    BMW 5 Series
-                  </div>
-
-                </Card.Footer>
-              </Card>
-            </Col>
-            <Col md="5">
-              <Card className="border-control">
-              <CardTitle className="text-control">Teste de Chart de Rosca</CardTitle>
+                <CardTitle className="text-control">Chart de Barra Vertical</CardTitle>
                 <p className="text-control-subtitle">Como encontrou o magister</p>
                 <Card.Body>
-                  <ReactECharts option={option} className="pie-chart"/>
-                  </Card.Body>
-                  </Card>
+                  <ReactECharts option={newBaroption} />
+                </Card.Body>
+              </Card>
             </Col>
-            <Col md="11">
+            <Col md="6">
               <Card className="border-control">
-              <CardTitle className="text-control">Teste de Chart de Barra horizontal</CardTitle>
+                <CardTitle className="text-control">Chart de Rosca</CardTitle>
+                <p className="text-control-subtitle">Como encontrou o magister</p>
+                <Card.Body>
+                  <ReactECharts option={option} className="pie-chart" />
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md="12">
+              <Card className="border-control">
+                <CardTitle className="text-control">Chart de Barra horizontal</CardTitle>
                 <p className="text-control-subtitle">Como encontrou o magister</p>
                 <Card.Body>
                   <ReactECharts option={horizontalBoption} />
-                  </Card.Body>
-                  </Card>
+                </Card.Body>
+              </Card>
             </Col>
-
-
+            <Col md="12">
+              <Card className="border-control">
+                <Card.Body>
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td colSpan={2}>Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md="6">
+              <Card className="border-control">
+                <CardTitle className="text-control">Média Geral Ponderada</CardTitle>
+                <p className="text-control-subtitle">MGP</p>
+                <Card.Body>
+                  <ReactECharts option={gaugeOption} />
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </div>
