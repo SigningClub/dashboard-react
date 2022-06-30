@@ -10,21 +10,21 @@
     }
   },
   legend: {},
-  grid: {
+  grid: {//Esses valores controlam as proporções do gráfico
     left: '3%',
     right: '4%',
     bottom: '3%',
     containLabel: true
   },
-  xAxis: {
+  xAxis: {//O que será mostrado no eixo x
     type: 'value'
   },
-  yAxis: {
+  yAxis: {//O que será mostrado no eixo y
     type: 'category',
     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   },
   series: [
-    {
+    {//A variavel series carrega e nomeia os dados que serão mostrados no gráfico
       name: 'Direct',
       type: 'bar',
       stack: 'total',
@@ -102,5 +102,14 @@
   ```
 ## Carregando no react
 ```javascript
-<ReactECharts option={horizontalBoption} />
+//Aqui é um exemplo de como estamos utilizando os gráficos dentro de cards e como carregar o chart
+            <Col md="12">
+              <Card className="border-control">
+                <CardTitle className="text-control">Chart de Barra horizontal</CardTitle>
+                <p className="text-control-subtitle">Como encontrou o magister</p>
+                <Card.Body>
+                  <ReactECharts option={horizontalBoption} />
+                </Card.Body>
+              </Card>
+            </Col>
 ```
