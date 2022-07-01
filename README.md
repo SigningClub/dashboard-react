@@ -1,5 +1,8 @@
+<h1 align="center">Dashboard com React</h1>
+
 # Gráfico de Barra
-## Dados do código
+## Dados do gráfico
+ Os dados que serão devem ser declarados em um "let" antes das declarações do react, nesse array serão armazenados os dados do chart e suas características
  ```javascript
   let horizontalBoption = {
   tooltip: {
@@ -101,6 +104,7 @@
 };
   ```
 ## Carregando no react
+No react as declarações são bem simples já que quem esta armazenando as características do gráfico é o array acima, No react precisamos apenas definir tamanhos, títulos/sub-títulos e o tamanho do card
 ```javascript
 //Aqui é um exemplo de como estamos utilizando os gráficos dentro de cards e como carregar o chart
             <Col md="12">
