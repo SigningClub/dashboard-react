@@ -40,7 +40,7 @@ function Sidebar({ color, image, routes }) {
               <img
                 src={require("assets/img/marca_gt.png").default}
                 height="50"
-                width="150"
+                
                 alt="..."
               />
             </div>

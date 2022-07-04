@@ -10,7 +10,8 @@ import {
   Row,
   Col,
   Table,
-  Navbar
+  Navbar,
+  Alert
 } from "react-bootstrap";
 import { CardTitle } from "reactstrap";
 
@@ -345,21 +346,33 @@ let gaugeOption = {
 function Dashboard() {
   return (
     <>
-      <p>
-<Container fluid>
-  <Navbar className="navbar-adjust">
-    <Navbar.Brand className="navbar-title">
-    <img
-                src={require("assets/img/marca_gt.png").default}
-                height="50"
-                width="150"
-                alt="..."
-              />
-    </Navbar.Brand>
+      <Navbar className="navbar-adjust" variant="dark">
+      </Navbar>
+      <div className="navbar-title">
+        <img
+          src={require("assets/img/marca_gt.png").default}
+          height="55"
+          
+          alt="..."
+        />
+      </div>
+      <div className="navbar-text">
+        Dashboard react
+      </div>
+<div>
+  <Container>
+    <Col lg="3" sm="6">
+      <Alert>
+        
+      </Alert>
+      </Col>
+      </Container>
 
-  </Navbar>
-</Container>
-      </p>
+
+</div>
+
+
+
       <div className="color-back">
         <Container fluid>
 
@@ -403,7 +416,7 @@ function Dashboard() {
 
 
                     </Col>
-                    <Col xs="5">
+                    <Col xs="4">
                       <p className="card-subtitle">Carga horária</p>
                     </Col>
                   </Row>
