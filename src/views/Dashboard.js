@@ -1,6 +1,6 @@
 import React from "react";
 import ChartistGraph from "react-chartist";
-// react-bootstrap components
+// react-bootstrap components teste de commitasdasdasdasdadasda
 import './Style.css';
 import ReactECharts from 'echarts-for-react';
 import '@foo-software/react-charts-donut/dist/DonutChart.css';
